@@ -1,0 +1,87 @@
+LOGIN:
+ADD:172.20.242.150
+DefCRED:admin/Changeme123
+
+Palo First 15:
+
+1. Change Admin Pasword
+2. Delete defult security policy rules
+3. Add all computers ips to Address pool
+4. Create three internal zones:
+	i. Internal (eth1/2){172.20.240.254/24}: Win16/Docker, Debian/DNS/NTP
+       ii. User (eth1/4){172.20.242.254/24}: Ubuntu/Webserver, Win12/DNS/NTP, Ubuntu/Desktop
+      iii. Public (eth1/1){172.20.241.254/24}: Splunk, CentOS/Ecom, Fedora/Email/Apps
+       iv. DMZ (eth1/3){???}: Win10/Desktop
+5. Keep These ports open for points
+	i. HTTP: 80
+       ii. HTTPS: 443
+      iii. SMTP: 25 and 587
+       iv. POP3: 110
+	v. DNS: 53
+6. Disable these ports
+	i. SSH: 22
+       ii. TelNet: 23
+7. Set up securty policys for each zone allowing appropriate traffic
+
+Other Notes:
+
+Keep your services up!
+Services include: HTTP, HTTPS, SMTP, POP3, SSH, SQL, DNS, FTP
+
+Default Palo IP address: 192.168.1.1
+
+You could potentially only access firewall settings through console port only
+
+MIND YOUR FIREWALL LOGS
+
+East West traffic (Malware preinstalled on your clients)
+
+ZERO TRUST with security policies
+
+Default Block
+
+Send everything to the firewall first
+
+
+SECURE THE MANAGEMENT PORT Since it is internet facing
+
+Red Team prevention
+
+Recon (Scanning) aka port detection
+Add a zone protection profile (Blocking scanning ip addresses)
+Delivery
+Check computers for pre installed malware
+Configure firewall to block the delivery of known attacks
+Command + control
+Block malware outgoing traffic
+
+Best practice General
+
+
+Know what apps to allow in and out of the network and inside of the network. And only allow those to be sent/received
+~Implement SSL/SSH description of network packets
+
+Best practice Firewall
+Whitelist applications and add them to the security policy
+Set up de-encryption policy
+Default policy between zones is block
+Default policy inside zones is allow
+Security policies are stateful
+File blocking (.exes)
+Add Wildfire signature
+First Things to do
+
+Change the cli password
+Remove all services other then https, ssh and ping
+Delete extra admin users
+
+Look at the services running
+Look at the user IDS
+Make sure accounts have passwords
+Disable ssh and telnet
+
+Videos: 
+
+https://www.youtube.com/watch?v=_4Udvp4LoiM
+
+https://www.youtube.com/watch?v=CApAdyG1W2o
