@@ -7,3 +7,5 @@ CCDC Team Member: https://chat.openai.com/chat
 
 Inject Word Doc Templates: https://www.sans.org/information-security-policy/?category=general
 
+Get Mac Address on Windows+Powershell: "Get-NetAdapter | Select-Object -ExpandProperty MacAddress"
+
